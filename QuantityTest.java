@@ -33,4 +33,11 @@ public class QuantityTest {
         Length inch2 = new Length(Length.Unit.INCH, 1.0);
         assertNotEquals(inch1, inch2);
     }
+
+    @Test
+    public void given1FeetAnd1Inch_ShouldReturnNotEqual() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        Length inch1 = new Length(Length.Unit.INCH, 1.0);
+        assertNotEquals(feet1, inch1);
+    }
 }
