@@ -42,10 +42,18 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0FeetAnd0Inch_ShouldReturnEqualLength() {
+    public void given0FeetAnd0Inch_WhenCompared_ShouldReturnEqualLength() {
         Length feet1 = new Length(Length.Unit.FEET, 0.0);
         Length inch1 = new Length(Length.Unit.INCH, 0.0);
         boolean compareCheck = feet1.compare(inch1);
         assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1FeetAnd1Inch_WhenCompared_ShouldReturnEqualNotLength() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        Length inch1 = new Length(Length.Unit.INCH, 1.0);
+        boolean compareCheck = feet1.compare(inch1);
+        assertFalse(compareCheck);
     }
 }
