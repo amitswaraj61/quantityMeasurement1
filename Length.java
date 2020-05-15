@@ -2,7 +2,7 @@ package quantityMeasure;
 
 public class Length {
 
-    enum Unit {FEET, INCH , YARD}
+    enum Unit {FEET, INCH, YARD}
 
     ;
     private final double value;
@@ -27,6 +27,8 @@ public class Length {
             return Double.compare(this.value * FEET_TO_INCH, that.value * YARD_TO_INCH) == 0;
         if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.FEET))
             return Double.compare(this.value * YARD_TO_INCH, that.value * FEET_TO_INCH) == 0;
+        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
         return false;
     }
 
