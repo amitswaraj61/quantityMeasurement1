@@ -2,8 +2,8 @@ package quantityMeasure;
 
 public class Length {
 
-    public final double value;
-    public final Unit unit;
+    private final double value;
+    private final Unit unit;
 
     public Length(Unit unit, Double value) {
         this.unit = unit;
@@ -11,7 +11,8 @@ public class Length {
     }
 
     public boolean compare(Length that) {
-        return this.unit.compare(this, that);
+        return Double.compare(that.unit.getConvertedValue(that.value),
+                this.unit.getConvertedValue(this.value)) == 0;
     }
 
     public boolean equals(Object o) {
