@@ -135,4 +135,12 @@ public class QuantityTest {
         assertTrue(compareCheck);
     }
 
+    @Test
+    public void given36InchAnd1yard_WhenCompared_ShouldReturnEqualLength() {
+        Length inch = new Length(Length.Unit.INCH, 36.0);
+        Length yard = new Length(Length.Unit.YARD, 1.0);
+        boolean compareCheck = inch.compare(yard);
+        assertTrue(compareCheck);
+    }
+
 }
