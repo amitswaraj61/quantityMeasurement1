@@ -2,7 +2,7 @@ package quantityMeasure;
 
 public enum Unit {
 
-    FEET(12.0), INCH(1) , YARD(36.0);
+    FEET(12.0), INCH(1) , YARD(36.0) , CENTIMETER(0.4);
 
     double baseUnitConversation;
 
