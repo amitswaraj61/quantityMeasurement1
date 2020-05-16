@@ -175,4 +175,12 @@ public class QuantityTest {
         double addedResult = feet1.add(inch2);
         assertEquals(14,addedResult,0.0);
     }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenAddition_ShouldReturn24Inch(){
+        Length feet1 = new Length(Unit.FEET,1.0);
+        Length feet2 = new Length(Unit.FEET,1.0);
+        double addedResult = feet1.add(feet2);
+        assertEquals(24,addedResult,0.0);
+    }
 }
