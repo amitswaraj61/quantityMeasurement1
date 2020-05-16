@@ -223,4 +223,12 @@ public class QuantityTest {
         double addedResult = litre.add(ml);
         assertEquals(2,addedResult,0.0);
     }
+
+    @Test
+    public void given1KgAnd1000Grams_WhenCompared_ShouldReturnEqualLength(){
+        Length kg = new Length(Unit.KG,1.0);
+        Length grams = new Length(Unit.GRAMS,1000.0);
+        boolean compareCheck = kg.compare(grams);
+        assertTrue(compareCheck);
+    }
 }
