@@ -159,4 +159,12 @@ public class QuantityTest {
         boolean compareCheck = inch.compare(cm);
         assertTrue(compareCheck);
     }
+
+    @Test
+    public void given2InchAnd2Inch_WhenAddition_ShouldReturn4Inch(){
+        Length inch1 = new Length(Unit.INCH,2.0);
+        Length inch2 = new Length(Unit.INCH,2.0);
+        double inchAdded = inch1.add(inch2);
+        assertEquals(4.0,inchAdded,0.0);
+    }
 }

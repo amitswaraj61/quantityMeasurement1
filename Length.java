@@ -22,5 +22,8 @@ public class Length {
         return Double.compare(length.value, value) == 0 && unit == length.unit;
     }
 
+    public double add(Length that) {
+        return this.unit.getConvertedValue(this.value) + that.unit.getConvertedValue(that.value);
+    }
 }
 
