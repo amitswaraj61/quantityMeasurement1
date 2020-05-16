@@ -161,82 +161,90 @@ public class QuantityTest {
     }
 
     @Test
-    public void given2InchAnd2Inch_WhenAddition_ShouldReturn4Inch(){
-        Length inch1 = new Length(Unit.INCH,2.0);
-        Length inch2 = new Length(Unit.INCH,2.0);
+    public void given2InchAnd2Inch_WhenAddition_ShouldReturn4Inch() {
+        Length inch1 = new Length(Unit.INCH, 2.0);
+        Length inch2 = new Length(Unit.INCH, 2.0);
         double inchAdded = inch1.add(inch2);
-        assertEquals(4.0,inchAdded,0.0);
+        assertEquals(4.0, inchAdded, 0.0);
     }
 
     @Test
-    public void given1FeetAnd2Inch_WhenAddition_ShouldReturn14Inch(){
-        Length feet1 = new Length(Unit.FEET,1.0);
-        Length inch2 = new Length(Unit.INCH,2.0);
+    public void given1FeetAnd2Inch_WhenAddition_ShouldReturn14Inch() {
+        Length feet1 = new Length(Unit.FEET, 1.0);
+        Length inch2 = new Length(Unit.INCH, 2.0);
         double addedResult = feet1.add(inch2);
-        assertEquals(14,addedResult,0.0);
+        assertEquals(14, addedResult, 0.0);
     }
 
     @Test
-    public void given1FeetAnd1Feet_WhenAddition_ShouldReturn24Inch(){
-        Length feet1 = new Length(Unit.FEET,1.0);
-        Length feet2 = new Length(Unit.FEET,1.0);
+    public void given1FeetAnd1Feet_WhenAddition_ShouldReturn24Inch() {
+        Length feet1 = new Length(Unit.FEET, 1.0);
+        Length feet2 = new Length(Unit.FEET, 1.0);
         double addedResult = feet1.add(feet2);
-        assertEquals(24,addedResult,0.0);
+        assertEquals(24, addedResult, 0.0);
     }
 
     @Test
-    public void given2InchAnd2nd5Cm_WhenAddition_ShouldReturn3Inch(){
-        Length inch1 = new Length(Unit.INCH,2.0);
-        Length cm1 = new Length(Unit.CENTIMETER,2.5);
+    public void given2InchAnd2nd5Cm_WhenAddition_ShouldReturn3Inch() {
+        Length inch1 = new Length(Unit.INCH, 2.0);
+        Length cm1 = new Length(Unit.CENTIMETER, 2.5);
         double addedResult = inch1.add(cm1);
-        assertEquals(3,addedResult,0.0);
+        assertEquals(3, addedResult, 0.0);
     }
 
     @Test
-    public void given1GallonAnd3n78Litres_WhenCompared_ShouldReturnEqualLength(){
-        Length gallon1 = new Length(Unit.GALLON,1.0);
-        Length litre =new Length(Unit.LITRE,3.78);
+    public void given1GallonAnd3n78Litres_WhenCompared_ShouldReturnEqualLength() {
+        Length gallon1 = new Length(Unit.GALLON, 1.0);
+        Length litre = new Length(Unit.LITRE, 3.78);
         boolean compareCheck = gallon1.compare(litre);
         assertTrue(compareCheck);
     }
 
     @Test
-    public void given1LitreAnd1000Ml_WhenCompared_ShouldReturnEqualLength(){
-        Length litre = new Length(Unit.LITRE,1.0);
-        Length ml = new Length(Unit.MILLIMETER,1000.0);
+    public void given1LitreAnd1000Ml_WhenCompared_ShouldReturnEqualLength() {
+        Length litre = new Length(Unit.LITRE, 1.0);
+        Length ml = new Length(Unit.MILLIMETER, 1000.0);
         boolean compareCheck = litre.compare(ml);
         assertTrue(compareCheck);
     }
 
     @Test
-    public void given1GallonAnd3n78Litres_WhenAddition_ShouldReturnEqualResult(){
-        Length gallon = new Length(Unit.GALLON,1.0);
-        Length litre = new Length(Unit.LITRE,3.78);
+    public void given1GallonAnd3n78Litres_WhenAddition_ShouldReturnEqualResult() {
+        Length gallon = new Length(Unit.GALLON, 1.0);
+        Length litre = new Length(Unit.LITRE, 3.78);
         double addedResult = gallon.add(litre);
-        assertEquals(7.56,addedResult,0.0);
+        assertEquals(7.56, addedResult, 0.0);
     }
 
     @Test
-    public void given1LitreAnd1000Ml_WhenAddition_ShouldReturn2Litres(){
-        Length litre = new Length(Unit.LITRE,1.0);
-        Length ml = new Length(Unit.MILLIMETER,1000.0);
+    public void given1LitreAnd1000Ml_WhenAddition_ShouldReturn2Litres() {
+        Length litre = new Length(Unit.LITRE, 1.0);
+        Length ml = new Length(Unit.MILLIMETER, 1000.0);
         double addedResult = litre.add(ml);
-        assertEquals(2,addedResult,0.0);
+        assertEquals(2, addedResult, 0.0);
     }
 
     @Test
-    public void given1KgAnd1000Grams_WhenCompared_ShouldReturnEqualLength(){
-        Length kg = new Length(Unit.KG,1.0);
-        Length grams = new Length(Unit.GRAMS,1000.0);
+    public void given1KgAnd1000Grams_WhenCompared_ShouldReturnEqualLength() {
+        Length kg = new Length(Unit.KG, 1.0);
+        Length grams = new Length(Unit.GRAMS, 1000.0);
         boolean compareCheck = kg.compare(grams);
         assertTrue(compareCheck);
     }
 
     @Test
-    public void given1TonneAnd1000Kgs_WhenCompared_ShouldReturnEqual(){
-        Length tonne = new Length(Unit.TONNE,1.0);
-        Length kgs = new Length(Unit.KG,1000.0);
+    public void given1TonneAnd1000Kgs_WhenCompared_ShouldReturnEqual() {
+        Length tonne = new Length(Unit.TONNE, 1.0);
+        Length kgs = new Length(Unit.KG, 1000.0);
         boolean compareCheck = tonne.compare(kgs);
         assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1TonneAnd1000Gm_WhenAddition_ShouldReturn1001Kg() {
+        Length tonne = new Length(Unit.TONNE, 1.0);
+        Length gm = new Length(Unit.GRAMS, 1000.0);
+        double addedResult = tonne.add(gm);
+        assertEquals(1001, addedResult, 0.0);
     }
 }
