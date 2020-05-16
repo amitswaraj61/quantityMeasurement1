@@ -247,4 +247,12 @@ public class QuantityTest {
         double addedResult = tonne.add(gm);
         assertEquals(1001, addedResult, 0.0);
     }
+
+    @Test
+    public void given212FehAnd100Cel_WhenCompared_ShouldReturnEqual(){
+        Length feh = new Length(Unit.FAHRENHEIT,212.0);
+        Length cel = new Length(Unit.CELSIUS,100.0);
+        boolean compareCheck = feh.compare(cel);
+        assertTrue(compareCheck);
+    }
 }
