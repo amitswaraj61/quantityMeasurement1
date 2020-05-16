@@ -183,4 +183,12 @@ public class QuantityTest {
         double addedResult = feet1.add(feet2);
         assertEquals(24,addedResult,0.0);
     }
+
+    @Test
+    public void given2InchAnd2nd5Cm_WhenAddition_ShouldReturn3Inch(){
+        Length inch1 = new Length(Unit.INCH,2.0);
+        Length cm1 = new Length(Unit.CENTIMETER,2.5);
+        double addedResult = inch1.add(cm1);
+        assertEquals(3,addedResult,0.0);
+    }
 }
