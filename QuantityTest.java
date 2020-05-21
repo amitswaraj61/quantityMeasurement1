@@ -8,251 +8,258 @@ public class QuantityTest {
 
     @Test
     public void given0FeetAnd0Feet_ShouldReturnEqual() {
-        Length feet1 = new Length(Unit.FEET, 0.0);
-        Length feet2 = new Length(Unit.FEET, 0.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 0.0);
+        Quantity feet2 = new Quantity(Unit.FEET, 0.0);
         assertEquals(feet1, feet2);
     }
 
     @Test
     public void given0FeetAnd1Feet_ShouldReturnNotEqual() {
-        Length feet1 = new Length(Unit.FEET, 0.0);
-        Length feet2 = new Length(Unit.FEET, 1.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 0.0);
+        Quantity feet2 = new Quantity(Unit.FEET, 1.0);
         assertNotEquals(feet1, feet2);
     }
 
     @Test
     public void given0InchAnd0Inch_ShouldReturnEqual() {
-        Length inch1 = new Length(Unit.INCH, 0.0);
-        Length inch2 = new Length(Unit.INCH, 0.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 0.0);
+        Quantity inch2 = new Quantity(Unit.INCH, 0.0);
         assertEquals(inch1, inch2);
     }
 
     @Test
     public void given0InchAnd1Inch_ShouldReturnNotEqual() {
-        Length inch1 = new Length(Unit.INCH, 0.0);
-        Length inch2 = new Length(Unit.INCH, 1.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 0.0);
+        Quantity inch2 = new Quantity(Unit.INCH, 1.0);
         assertNotEquals(inch1, inch2);
     }
 
     @Test
     public void given1FeetAnd1Inch_ShouldReturnNotEqual() {
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        Length inch1 = new Length(Unit.INCH, 1.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 1.0);
         assertNotEquals(feet1, inch1);
     }
 
     @Test
     public void given0FeetAnd0Inch_WhenCompared_ShouldReturnEqualLength() {
-        Length feet1 = new Length(Unit.FEET, 0.0);
-        Length inch1 = new Length(Unit.INCH, 0.0);
-        boolean compareCheck = feet1.compare(inch1);
-        assertTrue(compareCheck);
+        Quantity feet1 = new Quantity(Unit.FEET, 0.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 0.0);
+        boolean areQuantityEqual = feet1.equals(inch1);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1FeetAnd1Inch_WhenCompared_ShouldReturnEqualNotLength() {
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        Length inch1 = new Length(Unit.INCH, 1.0);
-        boolean compareCheck = feet1.compare(inch1);
-        assertFalse(compareCheck);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 1.0);
+        boolean areQuantityEqual = feet1.equals(inch1);
+        assertFalse(areQuantityEqual);
     }
 
     @Test
     public void given1InchAnd1Feet_WhenCompared_ShouldReturnNotEqualLength() {
-        Length inch1 = new Length(Unit.INCH, 1.0);
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        boolean compareCheck = inch1.compare(feet1);
-        assertFalse(compareCheck);
+        Quantity inch1 = new Quantity(Unit.INCH, 1.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        boolean areQuantityEqual = inch1.equals(feet1);
+        assertFalse(areQuantityEqual);
     }
 
     @Test
     public void given1FeetAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        Length feet2 = new Length(Unit.FEET, 1.0);
-        boolean compareCheck = feet1.compare(feet2);
-        assertTrue(compareCheck);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        Quantity feet2 = new Quantity(Unit.FEET, 1.0);
+        boolean areQuantityEqual = feet1.equals(feet2);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1FeetAnd12Inch_WhenCompared_ShouldReturnEqualLength() {
-        Length feet = new Length(Unit.FEET, 1.0);
-        Length inch = new Length(Unit.INCH, 12.0);
-        boolean compareCheck = feet.compare(inch);
-        assertTrue(compareCheck);
+        Quantity feet = new Quantity(Unit.FEET, 1.0);
+        Quantity inch = new Quantity(Unit.INCH, 12.0);
+        boolean areQuantityEqual = feet.equals(inch);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given12InchAnd1Feet_WhenCompared_ShouldReturnEqualLength() {
-        Length inch = new Length(Unit.INCH, 12.0);
-        Length feet = new Length(Unit.FEET, 1.0);
-        boolean compareCheck = inch.compare(feet);
-        assertTrue(compareCheck);
+        Quantity inch = new Quantity(Unit.INCH, 12.0);
+        Quantity feet = new Quantity(Unit.FEET, 1.0);
+        boolean areQuantityEqual = inch.equals(feet);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void givenNullFeetAnd1Inch_ShouldReturnNotEqual() {
-        Length feet = null;
-        Length inch = new Length(Unit.INCH, 1.0);
+        Quantity feet = null;
+        Quantity inch = new Quantity(Unit.INCH, 1.0);
         assertNotEquals(feet, inch);
     }
 
     @Test
     public void given1FeetAnd1Inch_WhenTypeProper_ShouldReturnEqual() {
-        Length feet = new Length(Unit.FEET, 1.0);
-        Length inch = new Length(Unit.INCH, 1.0);
+        Quantity feet = new Quantity(Unit.FEET, 1.0);
+        Quantity inch = new Quantity(Unit.INCH, 1.0);
         assertEquals(feet.getClass(), inch.getClass());
     }
 
     @Test
     public void given1YardAnd3Feet_WhenCompared_ShouldReturnEqualLength() {
-        Length yard = new Length(Unit.YARD, 1.0);
-        Length feet = new Length(Unit.FEET, 3.0);
-        boolean compareCheck = yard.compare(feet);
-        assertTrue(compareCheck);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        Quantity feet = new Quantity(Unit.FEET, 3.0);
+        boolean areQuantityEqual = yard.equals(feet);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1FeetAnd1Yard_WhenCompared_ShouldReturnNotEqualLength() {
-        Length feet = new Length(Unit.FEET, 1.0);
-        Length yard = new Length(Unit.YARD, 1.0);
-        boolean compareCheck = feet.compare(yard);
-        assertFalse(compareCheck);
+        Quantity feet = new Quantity(Unit.FEET, 1.0);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        boolean areQuantityEqual = feet.equals(yard);
+        assertFalse(areQuantityEqual);
     }
 
     @Test
     public void given1InchAnd1Yard_WhenCompared_ShouldReturnNotEqualLength() {
-        Length inch = new Length(Unit.INCH, 1.0);
-        Length yard = new Length(Unit.YARD, 1.0);
-        boolean compareCheck = inch.compare(yard);
-        assertFalse(compareCheck);
+        Quantity inch = new Quantity(Unit.INCH, 1.0);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        boolean areQuantityEqual = inch.equals(yard);
+        assertFalse(areQuantityEqual);
     }
 
     @Test
     public void given1YardAnd36Inch_WhenCompared_ShouldReturnEqualLength() {
-        Length yard = new Length(Unit.YARD, 1.0);
-        Length inch = new Length(Unit.INCH, 36.0);
-        boolean compareCheck = yard.compare(inch);
-        assertTrue(compareCheck);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        Quantity inch = new Quantity(Unit.INCH, 36.0);
+        boolean areQuantityEqual = yard.equals(inch);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given36InchAnd1yard_WhenCompared_ShouldReturnEqualLength() {
-        Length inch = new Length(Unit.INCH, 36.0);
-        Length yard = new Length(Unit.YARD, 1.0);
-        boolean compareCheck = inch.compare(yard);
-        assertTrue(compareCheck);
+        Quantity inch = new Quantity(Unit.INCH, 36.0);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        boolean areQuantityEqual = inch.equals(yard);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given3FeetAnd1Yard_WhenCompared_ShouldReturnEqualLength() {
-        Length yard = new Length(Unit.YARD, 1.0);
-        Length feet = new Length(Unit.FEET, 3.0);
-        boolean compareCheck = yard.compare(feet);
-        assertTrue(compareCheck);
+        Quantity yard = new Quantity(Unit.YARD, 1.0);
+        Quantity feet = new Quantity(Unit.FEET, 3.0);
+        boolean areQuantityEqual = yard.equals(feet);
+        assertTrue(areQuantityEqual);
     }
 
 
     @Test
     public void given2InchAnd5Cm_WhenCompared_ShouldReturnEqualLength() {
-        Length inch = new Length(Unit.INCH, 2.0);
-        Length cm = new Length(Unit.CENTIMETER, 5.0);
-        boolean compareCheck = inch.compare(cm);
-        assertTrue(compareCheck);
+        Quantity inch = new Quantity(Unit.INCH, 2.0);
+        Quantity cm = new Quantity(Unit.CENTIMETER, 5.0);
+        boolean areQuantityEqual = inch.equals(cm);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given2InchAnd2Inch_WhenAddition_ShouldReturn4Inch() {
-        Length inch1 = new Length(Unit.INCH, 2.0);
-        Length inch2 = new Length(Unit.INCH, 2.0);
-        double inchAdded = inch1.add(inch2);
-        assertEquals(4.0, inchAdded, 0.0);
+        Quantity inch1 = new Quantity(Unit.INCH, 2.0);
+        Quantity inch2 = new Quantity(Unit.INCH, 2.0);
+        Quantity inch3 = new Quantity(Unit.INCH,4.0);
+        Quantity addedQuantity = inch1.add(inch2);
+        assertEquals(inch3,addedQuantity);
     }
 
     @Test
     public void given1FeetAnd2Inch_WhenAddition_ShouldReturn14Inch() {
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        Length inch2 = new Length(Unit.INCH, 2.0);
-        double addedResult = feet1.add(inch2);
-        assertEquals(14, addedResult, 0.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        Quantity inch2 = new Quantity(Unit.INCH, 2.0);
+        Quantity inch = new Quantity(Unit.INCH,14.0);
+        Quantity addedQuantity = feet1.add(inch2);
+        assertEquals(inch,addedQuantity);
     }
 
     @Test
     public void given1FeetAnd1Feet_WhenAddition_ShouldReturn24Inch() {
-        Length feet1 = new Length(Unit.FEET, 1.0);
-        Length feet2 = new Length(Unit.FEET, 1.0);
-        double addedResult = feet1.add(feet2);
-        assertEquals(24, addedResult, 0.0);
+        Quantity feet1 = new Quantity(Unit.FEET, 1.0);
+        Quantity feet2 = new Quantity(Unit.FEET, 1.0);
+        Quantity inch = new Quantity(Unit.INCH,24.0);
+        Quantity addedQuantity = feet1.add(feet2);
+        assertEquals(inch,addedQuantity);
     }
 
     @Test
-    public void given2InchAnd2nd5Cm_WhenAddition_ShouldReturn3Inch() {
-        Length inch1 = new Length(Unit.INCH, 2.0);
-        Length cm1 = new Length(Unit.CENTIMETER, 2.5);
-        double addedResult = inch1.add(cm1);
-        assertEquals(3, addedResult, 0.0);
+    public void given2InchAnd2Point5Cm_WhenAddition_ShouldReturn3Inch() {
+        Quantity twoInch = new Quantity(Unit.INCH, 2.0);
+        Quantity twoPoint5Cm = new Quantity(Unit.CENTIMETER, 2.5);
+        Quantity threeInch = new Quantity(Unit.INCH,3.0);
+        Quantity addedQuantity = twoInch.add(twoPoint5Cm);
+        assertEquals(threeInch, addedQuantity);
     }
 
     @Test
-    public void given1GallonAnd3n78Litres_WhenCompared_ShouldReturnEqualLength() {
-        Length gallon1 = new Length(Unit.GALLON, 1.0);
-        Length litre = new Length(Unit.LITRE, 3.78);
-        boolean compareCheck = gallon1.compare(litre);
-        assertTrue(compareCheck);
+    public void given1GallonAnd3Point78Litres_WhenCompared_ShouldReturnEqualLength() {
+        Quantity oneGallon = new Quantity(Unit.GALLON, 1.0);
+        Quantity threePointSevenEightLitres = new Quantity(Unit.LITRE, 3.78);
+        boolean areQuantityEqual = oneGallon.equals(threePointSevenEightLitres);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1LitreAnd1000Ml_WhenCompared_ShouldReturnEqualLength() {
-        Length litre = new Length(Unit.LITRE, 1.0);
-        Length ml = new Length(Unit.MILLIMETER, 1000.0);
-        boolean compareCheck = litre.compare(ml);
-        assertTrue(compareCheck);
+        Quantity oneLitre = new Quantity(Unit.LITRE, 1.0);
+        Quantity oneThousandsMl = new Quantity(Unit.MILLIMETER, 1000.0);
+        boolean areQuantityEqual = oneLitre.equals(oneThousandsMl);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
-    public void given1GallonAnd3n78Litres_WhenAddition_ShouldReturnEqualResult() {
-        Length gallon = new Length(Unit.GALLON, 1.0);
-        Length litre = new Length(Unit.LITRE, 3.78);
-        double addedResult = gallon.add(litre);
-        assertEquals(7.56, addedResult, 0.0);
+    public void given1GallonAnd3Point7Litres_WhenAddition_ShouldReturnEqualResult() {
+        Quantity oneGallon = new Quantity(Unit.GALLON, 1.0);
+        Quantity threePointSevenEightLitres = new Quantity(Unit.LITRE, 3.78);
+        Quantity sevenPointFiveSixLitres= new Quantity(Unit.LITRE,7.56);
+        Quantity addedQuantity = oneGallon.add(threePointSevenEightLitres);
+        assertEquals(sevenPointFiveSixLitres,addedQuantity);
     }
 
     @Test
     public void given1LitreAnd1000Ml_WhenAddition_ShouldReturn2Litres() {
-        Length litre = new Length(Unit.LITRE, 1.0);
-        Length ml = new Length(Unit.MILLIMETER, 1000.0);
-        double addedResult = litre.add(ml);
-        assertEquals(2, addedResult, 0.0);
+        Quantity oneLitre = new Quantity(Unit.LITRE, 1.0);
+        Quantity oneThousandMl = new Quantity(Unit.MILLIMETER, 1000.0);
+        Quantity twoLitres = new Quantity(Unit.LITRE,2.0);
+        Quantity addedQuantity = oneLitre.add(oneThousandMl);
+        assertEquals(twoLitres,addedQuantity);
     }
 
     @Test
     public void given1KgAnd1000Grams_WhenCompared_ShouldReturnEqualLength() {
-        Length kg = new Length(Unit.KG, 1.0);
-        Length grams = new Length(Unit.GRAMS, 1000.0);
-        boolean compareCheck = kg.compare(grams);
-        assertTrue(compareCheck);
+        Quantity oneKg = new Quantity(Unit.KILOGRAM, 1.0);
+        Quantity oneThousandGrams = new Quantity(Unit.GRAMS, 1000.0);
+        boolean areQuantityEqual= oneKg.equals(oneThousandGrams);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1TonneAnd1000Kgs_WhenCompared_ShouldReturnEqual() {
-        Length tonne = new Length(Unit.TONNE, 1.0);
-        Length kgs = new Length(Unit.KG, 1000.0);
-        boolean compareCheck = tonne.compare(kgs);
-        assertTrue(compareCheck);
+        Quantity oneTonne = new Quantity(Unit.TONNE, 1.0);
+        Quantity oneThousandKg = new Quantity(Unit.KILOGRAM, 1000.0);
+        boolean areQuantityEqual =oneTonne.equals(oneThousandKg);
+        assertTrue(areQuantityEqual);
     }
 
     @Test
     public void given1TonneAnd1000Gm_WhenAddition_ShouldReturn1001Kg() {
-        Length tonne = new Length(Unit.TONNE, 1.0);
-        Length gm = new Length(Unit.GRAMS, 1000.0);
-        double addedResult = tonne.add(gm);
-        assertEquals(1001, addedResult, 0.0);
+        Quantity oneTonne = new Quantity(Unit.TONNE, 1.0);
+        Quantity oneThousandGrams = new Quantity(Unit.GRAMS, 1000.0);
+        Quantity oneThousandOneKgs = new Quantity(Unit.KILOGRAM,1001.0);
+        Quantity addedQuantity = oneTonne.add(oneThousandGrams);
+        assertEquals(oneThousandOneKgs,addedQuantity);
     }
 
     @Test
     public void given212FehAnd100Cel_WhenCompared_ShouldReturnEqual(){
-        Length feh = new Length(Unit.FAHRENHEIT,212.0);
-        Length cel = new Length(Unit.CELSIUS,100.0);
-        boolean compareCheck = feh.compare(cel);
-        assertTrue(compareCheck);
+        Quantity feh = new Quantity(Unit.FAHRENHEIT,212.0);
+        Quantity cel = new Quantity(Unit.CELSIUS,100.0);
+        boolean areQuantityEqual = feh.equals(cel);
+        assertTrue(areQuantityEqual);
     }
 }
